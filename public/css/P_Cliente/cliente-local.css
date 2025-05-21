@@ -1,0 +1,172 @@
+:root {
+    --color-fondo-suave-latte-cremoso: #F5EFE0;
+    --color-fondo-suave-remolino-caramelo: #D4B996;
+    --color-fondo-suave-toque-canela: #B67B65;
+    --color-fondo-suave-crema-vainilla: #FFF8E8;
+    --color-fondo-suave-rubor-moca: #C8AFA0;
+  
+    --color-fondo-oscuro-grano-de-espresso: #38220F;
+    --color-fondo-oscuro-café-tostado: #634832;
+    --color-fondo-oscuro-chocolate-amargo: #2C1A0A;
+    --color-fondo-oscuro-verde-bosque: #2D4F33;
+  
+    --color-texto-fondo-claro-titulo: #251605;
+    --color-texto-fondo-claro-sub-titulo: #4A3520;
+    --color-texto-fondo-claro-parrafo: #6B5744;
+  
+    --color-texto-fondo-oscuro-titulo: #F9F4EC;
+    --color-texto-fondo-oscuro-sub-titulo: #E8DCCD;
+    --color-texto-fondo-oscuro-parrafo: #D6C9BA;
+  }
+  
+
+  
+  .contenido-principal {
+    padding: 2rem;
+  }
+  
+  h1, h2 {
+    color: var(--color-texto-fondo-claro-titulo);
+  }
+  
+  .menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  
+  .menu > div {
+    background-color: var(--color-fondo-suave-latte-cremoso);
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    text-align: center;
+  }
+  
+  .menu img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .menu h3 {
+    margin: 0.5rem 0;
+    color: var(--color-texto-fondo-claro-sub-titulo);
+  }
+  
+  .menu button {
+    background-color: var(--color-fondo-suave-toque-canela);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .menu button:hover {
+    background-color: var(--color-fondo-oscuro-café-tostado);
+  }
+  
+  .carrito-flotante {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 350px;
+    height: 100vh;
+    background-color: var(--color-fondo-oscuro-grano-de-espresso);
+    color: var(--color-texto-fondo-oscuro-parrafo);
+    padding: 1rem;
+    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+    display: none;
+    z-index: 1000;
+  }
+  
+  .carrito-flotante h2 {
+    color: var(--color-texto-fondo-oscuro-titulo);
+    margin-bottom: 1rem;
+  }
+  
+  .carrito-flotante button {
+    background-color: var(--color-fondo-suave-rubor-moca);
+    color: var(--color-texto-fondo-claro-titulo);
+    border: none;
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    margin-left: 0.5rem;
+    cursor: pointer;
+  }
+  
+  .carrito-flotante button:hover {
+    background-color: var(--color-fondo-suave-remolino-caramelo);
+  }
+
+  .carrito-flotante table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background-color: var(--color-fondo-suave-crema-vainilla);
+    color: var(--color-texto-fondo-claro-parrafo);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .carrito-flotante th,
+  .carrito-flotante td {
+    padding: 0.5rem;
+    text-align: center;
+    border-bottom: 1px solid var(--color-fondo-suave-latte-cremoso);
+  }
+  
+  .carrito-flotante td form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3rem;
+  }
+  
+  .carrito-flotante hr {
+    border: 0;
+    border-top: 2px solid var(--color-fondo-suave-rubor-moca);
+    margin: 1rem 0;
+  }
+  
+  .carrito-flotante h1 {
+    font-size: 1.5rem;
+    color: var(--color-texto-fondo-oscuro-titulo);
+    margin: 0.5rem 0;
+  }
+  #btn-abrir-carrito ion-icon{
+    width: 40px;
+    height: 40px;
+  }
+  #btn-abrir-carrito {
+    position: fixed;
+    bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 1rem;
+    background-color: var(--color-fondo-oscuro-verde-bosque);
+    width: 80px;
+    height: 80px;
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 50%;
+    font-size: 1rem;
+    cursor: pointer;
+    z-index: 1001;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  #btn-cerrar-carrito {
+    float: right;
+    background-color: transparent;
+    color: var(--color-texto-fondo-oscuro-sub-titulo);
+    font-size: 1.5rem;
+    border: none;
+    cursor: pointer;
+  }
+ 

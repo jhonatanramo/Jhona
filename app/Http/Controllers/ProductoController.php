@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Producto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductoController extends Controller
 {
@@ -15,6 +16,25 @@ class ProductoController extends Controller
         $productos=Producto::all();
         return view('carrito.index', compact('productos'));
     }
+
+        public function obtener(Request $request)
+    {
+        $nombreBuscado = $request->input('buscar-producto');
+
+        $productoObtenido = DB::table('productos')
+            ->where('nombre', 'like', '%' . $nombreBuscado . '%')
+            ->get();
+        return view('P_personal.Personal-pedido', compact('productoObtenido'));
+    }
+
+
+        public function mostrarProductos()
+        {
+            $productos = DB::table('productos')->get();
+            return view('P_personal.Personal-pedido', compact('productos'));
+        }
+
+
 
     /**
      * Show the form for creating a new resource.

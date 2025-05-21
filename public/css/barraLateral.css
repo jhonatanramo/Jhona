@@ -1,6 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 
 :root {
+    :root{
+
+        /*colores de fondos oscuros*/
+        
+        --color-fondo-suave-latte-cremoso:#F5EFE0;
+        --color-fondo-suave-remolino-caramelo:#D4B996;
+        --color-fondo-suave-toque-canela:#B67B65;
+        --color-fondo-suave-crema-vainilla:#FFF8E8;
+        --color-fondo-suave-rubor-moca:#C8AFA0;
+        
+        /*colores de fondos oscuros*/
+        
+        --color-fondo-oscuro-grano-de-espresso:#38220F;
+        --color-fondo-oscuro-café-tostado:#634832;
+        --color-fondo-oscuro-chocolate-amargo:#2C1A0A;
+        --color-fondo-oscuro-verde-bosque:#2D4F33;
+        
+        /*colore del texto para fondo claros*/
+        
+        --color-texto-fondo-claro-titulo:#251605;
+        --color-texto-fondo-claro-sub-titulo:#4A3520;
+        --color-texto-fondo-claro-parrafo:#6B5744;
+        
+        /*colore del texto para fondo oscuros*/
+        
+        --color-texto-fondo-oscuro-titulo:#F9F4EC;
+        --color-texto-fondo-oscuro-sub-titulo:#E8DCCD;
+        --color-texto-fondo-oscuro-parrafo: #D6C9BA;
+        }
+        
+
+
     /* Sombras */
     --color-texto: #000000;
     --color-texto-secundario: #ffffff;
@@ -18,7 +50,7 @@
     --radio-borde-pequeno: 8px;
 
     /*colore de pagina*/
-    --color-fondo:rgb(255, 255, 255);
+    --color-fondo:var;
     --color-fondo-barraLateral:rgb(183, 215, 219);
     
     --color-fondo-paquetes:rgb(255, 255, 255);

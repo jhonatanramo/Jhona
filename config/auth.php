@@ -35,13 +35,8 @@ return [
     |
     */
 
-    'guards' => [
-        'web' => [
-            'driver' => 'session',
-            'provider' => 'users',
-        ],
-    ],
-
+    'guards' => ['web' => ['driver' => 'session','provider' => 'users',],'personal'=>['driver'=>'session','provider'=>'personal',],],
+    
     /*
     |--------------------------------------------------------------------------
     | User Providers
@@ -64,12 +59,17 @@ return [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', App\Models\User::class),
         ],
+        'personal' => [
+            'driver' => 'eloquent',
+            'model' => env('AUTH_MODEL', App\Models\Personal::class),
+        ],
 
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
     ],
+
 
     /*
     |--------------------------------------------------------------------------
@@ -111,5 +111,14 @@ return [
     */
 
     'password_timeout' => env('AUTH_PASSWORD_TIMEOUT', 10800),
+
+    'guards' => [
+    'web-personal' => [
+        'driver' => 'session',
+        'provider' => 'personales',
+    ],
+],
+
+
 
 ];

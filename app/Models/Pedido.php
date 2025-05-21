@@ -3,18 +3,22 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Pedido extends Model
 {
     protected $primaryKey = 'nro';
+
     protected $fillable = [
-         'fecha',
-         'monto',
-         'tipo',
-         'ciPersonal',
-         'estadoPreparacion',
-         'estadoPago',
-         'idMetodoPago'
+        'fecha',
+        'monto',
+        'tipo',
+        'ciPersonal',
+        'estadoPreparacion',
+        'estadoPago',
+        'idMetodoPago'
     ];
 
     public function personal(): BelongsTo
@@ -29,11 +33,11 @@ class Pedido extends Model
 
     public function productos(): BelongsToMany
     {
-        return $this->belogsToMany(Producto::class, 'detalle_pedido_productos', 'nroPedido', 'idProducto');
+        return $this->belongsToMany(Producto::class, 'detalle_pedido_productos', 'nroPedido', 'idProducto')
                     ->withPivot('cantidad');
     }
 
-    public function factura() :HasOne
+    public function factura(): HasOne
     {
         return $this->hasOne(Factura::class, 'nroPedido');
     }

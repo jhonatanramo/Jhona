@@ -16,7 +16,6 @@ class CarritoController extends Controller
         switch ($btn) {
             case 'btn-agregar':
                 $existe = false;
-
                 foreach ($carrito as $index => $producto) {
                     if ($producto['id'] == $id) {
                         $carrito[$index]['cantidad']++;
@@ -24,7 +23,6 @@ class CarritoController extends Controller
                         break;
                     }
                 }
-
                 if (!$existe) {
                     $carrito[] = [
                         'id' => $id,
@@ -33,9 +31,7 @@ class CarritoController extends Controller
                         'cantidad' => 1
                     ];
                 }
-
                 session(['carrito' => $carrito]);
-
                 return redirect()->back()->with('exito', 'Producto agregado al carrito');
 
             case 'btn-reducir':
@@ -62,17 +58,34 @@ class CarritoController extends Controller
                 return redirect()->back()->with('exito', 'Producto eliminado del carrito');
 
             case 'btn-editar':
-                foreach ($carrito as $index => $producto) {
-                    if ($producto['id'] == $id) {
-                        $nuevaCantidad = $request->input('cantidad');
-                        if (is_numeric($nuevaCantidad) && $nuevaCantidad > 0) {
-                            $carrito[$index]['cantidad'] = (int)$nuevaCantidad;
+                $existe = false;
+                $nuevaCantidad = $request->input('cantidad');
+
+                if (is_numeric($nuevaCantidad) && $nuevaCantidad > 0) {
+                    foreach ($carrito as $index => $producto) {
+                        if ($producto['id'] == $id) {
+                            $carrito[$index]['cantidad'] = (int) $nuevaCantidad;
+                            $existe = true;
+                            break;
                         }
-                        break;
                     }
+
+                    if (!$existe) {
+                        $carrito[] = [
+                            'id' => $id,
+                            'nombre' => $nombre,
+                            'precio' => $precio,
+                            'cantidad' => (int) $nuevaCantidad
+                        ];
+                    }
+
+                    session(['carrito' => $carrito]);
+                    return redirect()->back()->with('exito', 'Cantidad editada correctamente');
                 }
-                session(['carrito' => $carrito]);
-                return redirect()->back()->with('exito', 'Cantidad editada correctamente');
+
+                return redirect()->back()->with('error', 'Cantidad no válida');
         }
+
+        return redirect()->back()->with('error', 'Acción no válida');
     }
 }
