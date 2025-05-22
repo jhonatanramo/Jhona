@@ -1,0 +1,440 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+:root {
+    :root{
+
+        /*colores de fondos oscuros*/
+        
+        --color-fondo-suave-latte-cremoso:#F5EFE0;
+        --color-fondo-suave-remolino-caramelo:#D4B996;
+        --color-fondo-suave-toque-canela:#B67B65;
+        --color-fondo-suave-crema-vainilla:#FFF8E8;
+        --color-fondo-suave-rubor-moca:#C8AFA0;
+        
+        /*colores de fondos oscuros*/
+        
+        --color-fondo-oscuro-grano-de-espresso:#38220F;
+        --color-fondo-oscuro-café-tostado:#634832;
+        --color-fondo-oscuro-chocolate-amargo:#2C1A0A;
+        --color-fondo-oscuro-verde-bosque:#2D4F33;
+        
+        /*colore del texto para fondo claros*/
+        
+        --color-texto-fondo-claro-titulo:#251605;
+        --color-texto-fondo-claro-sub-titulo:#4A3520;
+        --color-texto-fondo-claro-parrafo:#6B5744;
+        
+        /*colore del texto para fondo oscuros*/
+        
+        --color-texto-fondo-oscuro-titulo:#F9F4EC;
+        --color-texto-fondo-oscuro-sub-titulo:#E8DCCD;
+        --color-texto-fondo-oscuro-parrafo: #D6C9BA;
+        }
+        
+
+
+    /* Sombras */
+    --color-texto: #000000;
+    --color-texto-secundario: #ffffff;
+    --sombra-suave: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --sombra-intensa: 0 4px 20px rgba(0, 0, 0, 0.15);
+    
+    
+    /* Transiciones */
+    --transicion-rapida: all 0.2s ease;
+    --transicion-media: all 0.3s ease;
+    --transicion-lenta: all 0.5s ease;
+    
+    /* Bordes */
+    --radio-borde: 12px;
+    --radio-borde-pequeno: 8px;
+
+    /*colore de pagina*/
+    --color-fondo:var;
+    --color-fondo-barraLateral:rgb(183, 215, 219);
+    
+    --color-fondo-paquetes:rgb(255, 255, 255);
+    --color-fondo-paquetes-hover:rgba(0, 0, 0, 0.238);
+
+    --color-fondo-atras-submenu:rgb(0,0,0);
+    --color-fondo-subPaquetes:rgb(6, 6, 6);
+    --color-fondo-subPaquetes-hover:rgb(158, 156, 104);
+}
+
+/* Estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Outfit", sans-serif;
+}
+
+body {
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    transition: var(--transicion-media);
+    min-height: 100vh;
+    display: flex;
+}
+
+/* Barra lateral */
+.barra-lateral {
+    width: 280px;
+    height: 100vh;
+    background-color:var(--color-fondo-barraLateral);
+    box-shadow: var(--sombra-suave);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    transition: var(--transicion-media);
+    position: fixed;
+    z-index: 100;
+}
+.logo {
+    background-color: black;
+    color: aliceblue;
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 10px;
+    border-radius: var(--radio-borde-pequeno);
+    transition: var(--transicion-media);
+}
+
+.logo:hover {
+    background-color: rgba(255, 255, 255, 0.649);
+    color: black;
+}
+
+.logo-icon {
+    font-size: 32px;
+    color: var(--color-primario);
+    margin-right: 12px;
+}
+
+.nombre-app {
+
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--color-primario);
+}
+
+/* Navegación */
+.navegacion {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.navegacion ul {
+    list-style: none;
+}
+/*active*/
+.nav-link {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    border-radius: var(--radio-borde-pequeno);
+    color: var(--color-texto);
+    text-decoration: none;
+    margin-bottom: 5px;
+    transition: var(--transicion-rapida);
+}
+
+.nav-link:hover {
+    background-color:var(--color-fondo-paquetes-hover);
+    color: var(--color-primario);
+}
+
+
+.nav-link ion-icon {
+    font-size: 20px;
+    margin-right: 12px;
+    width: 24px;
+    text-align: center;
+}
+
+.nav-link .flecha {
+    margin-left: auto;
+    transition: var(--transicion-media);
+}
+
+/* -----------------------Submenú */
+.menu-desplegable {
+    position: relative;
+    border-radius: 10px;
+    background-color: var(--color-fondo-paquetes);
+/*--------------------------------------------------------------------*/
+}
+
+.sub-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding-left: 5px;
+    margin-bottom: 8px;
+    background-color:var(--color-fondo-atras-submenu);
+}
+
+.sub-menu-link {
+    display: block;
+    padding: 10px 15px;
+    display: flex;
+    color: var(--color-texto-secundario);
+    text-decoration: none;
+    font-size: 14px;
+    transition: var(--transicion-rapida);
+    background-color:var(--color-fondo-subPaquetes);
+}
+.sub-menu-link ion-icon{
+    background-color: #ffffff;
+    font-size: 24px;
+    margin-right: 6px;
+}
+.sub-menu-link:hover {
+    color: var(--color-primario);
+    background-color:var(--color-fondo-subPaquetes-hover);
+}
+
+.menu-desplegable.active .sub-menu {
+    max-height: 300px;
+}
+
+.menu-desplegable.active .flecha {
+    transform: rotate(180deg);
+}
+
+/* Contenido inferior */
+.contenido-inferior {
+    margin-top: auto;
+}
+
+
+/* Modo oscuro */
+.modo-oscuro {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 5px;
+    border-radius: var(--radio-borde-pequeno);
+    cursor: pointer;
+    transition: var(--transicion-rapida);
+}
+
+.modo-oscuro:hover {
+    background-color: var(--color-hover);
+}
+
+.modo-info {
+    display: flex;
+    align-items: center;
+}
+
+.modo-info ion-icon {
+    font-size: 20px;
+    margin-right: 12px;
+    color: var(--color-texto);
+}
+
+
+/* Perfil de usuario */
+.perfil-usuario {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: var(--radio-borde-pequeno);
+    margin-top: 20px;
+    transition: var(--transicion-rapida);
+}
+
+.perfil-usuario:hover {
+    background-color: var(--color-hover);
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 12px;
+}
+
+.info-usuario {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.datos-usuario {
+    flex: 1;
+    overflow: hidden;
+}
+
+.nombre-usuario {
+    font-size: 14px;
+    font-weight: 500;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.email-usuario {
+    font-size: 12px;
+    color: var(--color-texto-secundario);
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.menu-usuario {
+    font-size: 18px;
+    color: var(--color-texto-secundario);
+    cursor: pointer;
+}
+
+/* Contenido principal */
+.contenido-principal {
+    margin-left: 280px;
+    flex: 1;
+    padding: 30px;
+    transition: var(--transicion-media);
+}
+
+.titulo-pagina {
+    color: var(--color-primario);
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+
+
+
+/* Menú toggle para móviles */
+.menu-toggle {
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.menu-toggle ion-icon {
+    font-size: 28px;
+    position: absolute;
+    transition: var(--transicion-media);
+}
+
+.close-icon {
+    opacity: 0;
+}
+
+/* Barra lateral mini */
+.mini-barra-lateral {
+    width: 80px;
+    overflow: hidden;
+}
+
+.mini-barra-lateral .nombre-app,
+.mini-barra-lateral .boton-nuevo span,
+.mini-barra-lateral .nav-link span,
+.mini-barra-lateral .modo-info span,
+.mini-barra-lateral .datos-usuario,
+.mini-barra-lateral .flecha {
+    display: none;
+}
+
+.mini-barra-lateral .boton-nuevo {
+    justify-content: center;
+    padding: 12px 0;
+}
+
+.mini-barra-lateral .boton-nuevo ion-icon {
+    margin-right: 0;
+}
+
+.mini-barra-lateral .nav-link {
+    justify-content: center;
+    padding: 12px 0;
+}
+
+.mini-barra-lateral .nav-link ion-icon {
+    margin-right: 0;
+    font-size: 24px;
+}
+.mini-barra-lateral .sub-menu-link ion-icon{
+    background-color: #ff0000;
+    font-size: 24px;
+    margin-right: 6px;
+}
+
+.mini-barra-lateral .logo {
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.mini-barra-lateral .logo-icon {
+    margin-right: 0;
+}
+
+.mini-barra-lateral .perfil-usuario {
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.mini-barra-lateral .avatar {
+    margin-right: 0;
+}
+
+.mini-barra-lateral .menu-usuario {
+    display: none;
+}
+
+/* Contenido principal mini */
+.min-main {
+    margin-left: 80px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .barra-lateral {
+        left: -280px;
+    }
+    
+    .max-barra-lateral {
+        left: 0;
+    }
+    
+    .menu-toggle {
+        display: flex;
+    }
+    
+    .contenido-principal {
+        margin-left: 0;
+        padding: 20px;
+    }
+    
+    .min-main {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .tarjetas-contenedor {
+        grid-template-columns: 1fr;
+    }
+    
+    .contenido-principal {
+        padding: 15px;
+    }
+}
